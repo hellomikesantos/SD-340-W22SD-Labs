@@ -1,21 +1,24 @@
-﻿StringDelegate del = new StringDelegate(PrintWords);
-Console.WriteLine(del("flask", 3));
-
-del = RemoveLastLetters;
-Console.WriteLine(del("water", 2));
+﻿using System.Text;
 
 string PrintWords(string wordArg, int numArg)
 {
-    for (int i = 0; i < numArg - 1; i++)
+    StringBuilder sb = new StringBuilder();
+    for (int i = 0; i < numArg; i++)
     {
-        Console.WriteLine(wordArg);
+        sb.Append(wordArg);
     }
-    return wordArg;
-}
+    return sb.ToString();
+};
 
 string RemoveLastLetters(string wordArg, int numArg)
 {
     return wordArg.Remove(wordArg.Length - numArg);
-}
+};
+
+StringDelegate del = new StringDelegate(PrintWords);
+Console.WriteLine(del("flask", 3));
+
+del = RemoveLastLetters;
+Console.WriteLine(del("water", 2));
 
 delegate string StringDelegate(string wordArg, int numArg);
