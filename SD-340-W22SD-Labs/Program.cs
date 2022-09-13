@@ -4,8 +4,20 @@ LinkedList<int> ints2 = new LinkedList<int>(20, 30, 40);
 ints.PrintValues();
 ints2.PrintValues();
 
-class LinkedList<T>
+public class LinkedList<T>
 {
+    Node head;
+    public class Node
+    {
+        public T data;
+        public Node next;
+
+        public Node(T value)
+        {
+            data = value;
+            next = null;
+        }
+    }
     public T FirstNode { get; set; }
     public T SecondNode { get; set; }
     public T ThirdNode { get; set; }
@@ -16,9 +28,10 @@ class LinkedList<T>
         ThirdNode = thirdNode;
     }
 
-    public void Add(int value)
+    public void Add(T value)
     {
-        this.Add(value);
+        Node node = new Node(value);
+        node = head;
     }
     public void PrintValues()
     {
