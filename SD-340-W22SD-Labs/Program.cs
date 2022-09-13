@@ -1,21 +1,41 @@
-﻿StringDelegate del = new StringDelegate(PrintWords);
-Console.WriteLine(del("flask", 3));
+﻿LinkedList<int> ints = new LinkedList<int>(1, 2, 3);
+LinkedList<int> ints2 = new LinkedList<int>(20, 30, 40);
 
-del = RemoveLastLetters;
-Console.WriteLine(del("water", 2));
+ints.PrintValues();
+ints2.PrintValues();
 
-string PrintWords(string wordArg, int numArg)
+public class LinkedList<T>
 {
-    for (int i = 0; i < numArg - 1; i++)
+    Node head;
+    public class Node
     {
-        Console.WriteLine(wordArg);
+        public T data;
+        public Node next;
+
+        public Node(T value)
+        {
+            data = value;
+            next = null;
+        }
     }
-    return wordArg;
+    public T FirstNode { get; set; }
+    public T SecondNode { get; set; }
+    public T ThirdNode { get; set; }
+    public LinkedList(T first, T second, T thirdNode)
+    {
+        FirstNode = first;
+        SecondNode = second;
+        ThirdNode = thirdNode;
+    }
+
+    public void Add(T value)
+    {
+        Node node = new Node(value);
+        node = head;
+    }
+    public void PrintValues()
+    {
+        Console.WriteLine($"Values: {FirstNode.ToString()}, {SecondNode.ToString()}, and {ThirdNode.ToString()}");
+    }
 }
 
-string RemoveLastLetters(string wordArg, int numArg)
-{
-    return wordArg.Remove(wordArg.Length - numArg);
-}
-
-delegate string StringDelegate(string wordArg, int numArg);
