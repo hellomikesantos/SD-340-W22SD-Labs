@@ -3,16 +3,16 @@ ints.PrintValues();
 
 class LinkedList<T>
 {
-    public T First { get; set; }
-    public T Second { get; set; }
+    public T FirstNode { get; set; }
+    public T SecondNode { get; set; }
     public LinkedList(T first, T second)
     {
-        First = first;
-        Second = second;
+        FirstNode = first;
+        SecondNode = second;
     }
 
     public void PrintValues()
     {
-        Console.WriteLine($"Values: {First.ToString()} and {Second.ToString()}");
+        Console.WriteLine($"Values: {FirstNode.ToString()} and {SecondNode.ToString()}");
     }
 }
